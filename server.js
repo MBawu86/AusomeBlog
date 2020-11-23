@@ -31,4 +31,4 @@ res.render('landing')
 const postController = require('./controllers/post')
 app.use('/blog', postController)
 //listener
-app.listen(3000, ()=> console.log(`server is listening on port: ${PORT}`))
+app.listen(PORT, ()=> console.log(`server is listening on port: ${PORT}`))
