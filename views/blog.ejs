@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Ausome Adventure</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Ausome Adventure</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+  <h1>Our Ausome Adventure</h1>
+  <ul>
+    <% for(let i = 0; i < posts.length; i++){ %>
+      <li>
+        <a href="/blog/<%= posts[i]._id %>">
+          <%= posts[i].title %>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+  <a href='/blog/new'>Create New Blog Post</a>
 </body>
 </html>
