@@ -12,8 +12,6 @@ router.get('/seed', (req, res) => {
     error ? res.status(400).json(error) : res.status(200).json(data);
   })
 })
-
-// FORWARDS READER TO INDEX/SITEMAP
 // READ ROUTE: get all posts ==============
 router.get('/', (req, res) => {
   Post.find({}, (error, allPosts) => {
@@ -22,23 +20,19 @@ router.get('/', (req, res) => {
     })
   })
 })
-
-// AUTHOR ONLY ACCESS VIA DB
 // CREATE PAGE: render the new post form ==============
 router.get('/new', (req, res) => {
   res.render('new')
 })
 
-
-// PSBL MERGE WITH READER COMMENTS
 //DELETE ROUTE: delete post
+
 router.delete('/:id', (req, res)=>{
     Post.findByIdAndDelete(req.params.id, (error, deletePost)=>{
         res.redirect('/blog')
     })
 })
 
-//  ?? UNCERTAIN 
 // UPDATE ROUTE: update post ===============
 router.put('/:id', (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body, (error, updatedPost) => {
@@ -46,15 +40,12 @@ router.put('/:id', (req, res) => {
     })
   })
 
-// NEW USER COMMENTS AFTER LOG-IN
 // CREATE ROUTE: create new blog post ===============
 router.post('/', (req, res) => {
   Post.create(req.body, (error, newPost) => {
     res.redirect('/blog');
   })
 })
-
-// ALLOW USER TO EDIT OWN COMMENTS AFTER LOG-IN
 // EDIT PAGE: render edit post form ===============
 router.get('/edit/:id', (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
@@ -63,8 +54,6 @@ router.get('/edit/:id', (req, res) => {
     })
   })
 })
-
-// WHEN READER CLICKS LINK/IMAGES FOR PARTICULAR SUNJECT (SRPA)
 // READ ROUTE: get single post ===============
 router.get('/:id', (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
