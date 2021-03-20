@@ -50,18 +50,10 @@ body, html {
   <div class="hero-text">
     <h1 style="font-size:50px">Essence of the Soul</h1>
     <p>ONE TRUTH MANY PATHS</p>
-    <button type ="button"><a href='/blog/new'></a>enter</button>
+    <a href='/blog/new' style="color: white">enter</a>
   </div>
 </div>
-  <ul>
-    <% for(let i = 0; i < posts.length; i++){ %>
-      <li>
-        <a href="/blog/<%= posts[i]._id %>">
-          <%= posts[i].title %>
-        </a>
-      </li>
-    <% } %>
-  </ul>
+
   
 </body>
 </html>
